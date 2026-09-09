@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>DSA_100Days.Day1.LargestOf3Num</StartupObject>
+    <StartupObject>DSA_100Days.Day2.FrequencyOfNumber</StartupObject>
   </PropertyGroup>
 
 </Project>
