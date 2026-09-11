@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>DSA_100Days.Day3.LongestWord</StartupObject>
+    <StartupObject>DSA_100Days.Day4.Array.MissingNumberFinding</StartupObject>
   </PropertyGroup>
 
 </Project>
