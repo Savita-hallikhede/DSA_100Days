@@ -11,7 +11,7 @@ namespace DSA_100Days.Day5.Array
       
         public static void Main(string[] args)
         {
-            int[] arr1 = { 10, 20, 30, 40 };
+            int[] arr1 = { 10, 90, 30, 40 };
             int[] arr2 = { 10, 20, 30, 40 };
 
             bool isEqual = true;

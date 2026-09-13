@@ -11,7 +11,7 @@ namespace DSA_100Days.Day5.Array
     {
         public static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] arr = { 1, 2, 3, 4, 5, 6, 7 ,22};
             int count = 0;
             for(int i=0; i<arr.Length; i++)
             {
