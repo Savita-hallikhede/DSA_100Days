@@ -1,0 +1,559 @@
+﻿📘 C# List<T>
+1. What is a List?
+A List<T> is a collection in C# that stores multiple values of the same type.
+Example:
+List<int> numbers = new List<int>();
+Here:
+List → collection type 
+<int> → it stores integers 
+numbers → name of the list 
+You can store:
+10
+20
+30
+40
+50
+2. Why do we use List?
+The biggest advantage of a List over an array is:
+A List can grow and shrink dynamically.
+Array
+int[] arr = new int[5];
+Size is fixed.
+Size = 5
+You cannot directly add a 6th element.
+List
+List<int> numbers = new List<int>();
+You can keep adding:
+10
+20
+30
+40
+50
+60
+70
+...
+The List automatically manages its size.
+3. Array vs List
+This is very important for interviews.
+Array	List
+Fixed size	Dynamic size
+int[]	List<int>
+Cannot easily add/remove	Easy to add/remove
+.Length	.Count
+Usually slightly simpler/faster for fixed-size data	More flexible
+Can store value types/reference types	Generic List stores a specified type
+Supports indexing	Supports indexing
+
+4. How to create a List?
+You will commonly see:
+List<int> numbers = new List<int>();
+Or:
+List<int> numbers = new();
+For your beginner practice, use the first form because it makes the syntax clear
+
+
+5. Creating a List with values
+You can directly provide values:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40, 50
+};
+Or:
+List<int> numbers = new List<int> { 10, 20, 30, 40, 50 };
+
+6. List is Generic
+You will see:
+List<int>
+List<string>
+List<double>
+List<char>
+The type inside < > tells the List what type of data it can store.
+
+8. Add multiple elements
+You can add values one by one:
+numbers.Add(10);
+numbers.Add(20);
+numbers.Add(30);
+Or initialize:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30
+};
+There is also:
+AddRange()
+Example:
+List<int> numbers = new List<int>();
+
+numbers.AddRange(new int[] { 10, 20, 30 });
+Now:
+10 20 30
+
+Add = one
+AddRange = a group/range of elements ✅
+
+9. Access an element
+Just like an array, List uses indexing.
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40
+};
+Then:
+Console.WriteLine(numbers[0]);
+Output:
+10
+10. Change/Update an element
+You can directly update using its index.
+numbers[2] = 100;
+Before:
+10 20 30 40
+After:
+10 20 100 40
+11. Count elements
+For an array:
+arr.Length
+For a List:
+list.Count
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40
+};
+
+Console.WriteLine(numbers.Count);
+Output:
+4
+
+12. Traversing a List
+You can use a normal for loop.
+for (int i = 0; i < numbers.Count; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+This is very similar to arrays.
+You can also use foreach:
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+Difference
+for gives you the index.
+foreach directly gives you the value.
+
+13. Insert an element at a specific index
+This is one of the biggest differences from your array practice.
+Use:
+Insert()
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40
+};
+
+numbers.Insert(2, 25);
+Before:
+Index:  0   1   2   3
+       10  20  30  40
+Insert 25 at index 2:
+10 20 25 30 40
+The List automatically shifts the elements.
+With an array, you had to manually create another array and shift/copy elements.
+
+14. Remove an element by value
+Use:
+Remove()
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40
+};
+
+numbers.Remove(30);
+Result:
+10 20 40
+Important
+Remove() removes the first matching occurrence.
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 20, 40
+};
+
+numbers.Remove(20);
+Result:
+10 30 20 40
+Only the first 20 is removed.
+
+15. Remove an element by index
+Use:
+RemoveAt()
+Example:
+numbers.RemoveAt(2);
+If:
+Index:  0   1   2   3
+       10  20  30  40
+Then index 2 (30) is removed.
+Result:
+10 20 40
+Remove(value)    → remove by value
+RemoveAt(index)  → remove by index
+6. Remove all matching elements
+Use:
+RemoveAll()
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 20, 30, 20
+};
+To remove all 20s:
+numbers.RemoveAll(x => x == 20);
+Result:
+10 30
+17. Check whether an element exists
+Use:
+Contains()
+Example:
+if (numbers.Contains(30))
+{
+    Console.WriteLine("Element found");
+}
+If 30 exists → true.
+If it doesn't → false.
+
+
+18. Find the index of an element
+Use:
+IndexOf()
+Example:
+int index = numbers.IndexOf(30);
+If:
+10 20 30 40
+then:
+index = 2
+If the element doesn't exist, IndexOf() returns:
+-1
+
+19. Find the last occurrence
+Use:
+LastIndexOf()
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 20, 40, 20
+};
+
+int index = numbers.LastIndexOf(20);
+Result:
+5
+This directly connects with the last occurrence problem you practiced manually with arrays.
+
+
+20. Clear the entire List
+Use:
+Clear()
+Example:
+numbers.Clear();
+Before:
+10 20 30 40
+After:
+empty
+The List still exists, but all elements are removed.
+
+21. Check if List is empty
+You can use:
+if (numbers.Count == 0)
+{
+    Console.WriteLine("List is empty");
+}
+This is a very common way.
+
+22. Sort a List
+Use:
+numbers.Sort();
+Example:
+List<int> numbers = new List<int>()
+{
+    50, 10, 40, 20, 30
+};
+
+numbers.Sort();
+Result:
+10 20 30 40 50
+
+23. Reverse a List
+Use:
+numbers.Reverse();
+Example:
+Before:
+10 20 30 40 50
+
+After:
+50 40 30 20 10
+Again, for DSA practice, you can first learn to reverse manually.
+
+24. Copy a List
+One way is:
+List<int> list2 = new List<int>(list1);
+Example:
+List<int> list1 = new List<int>() { 10, 20, 30 };
+
+List<int> list2 = new List<int>(list1);
+Now:
+list1 → 10 20 30
+list2 → 10 20 30
+
+25. List capacity
+This is a slightly more advanced concept.
+A List has:
+•	Count 
+•	Capacity 
+Count
+Number of elements currently stored.
+Capacity
+How much space the List currently has available internally before it needs to grow.
+Example:
+List<int> numbers = new List<int>();
+
+Console.WriteLine(numbers.Count);
+Console.WriteLine(numbers.Capacity);
+Initially, Count is 0.
+Capacity is an implementation detail and may change as elements are added.
+For your beginner DSA practice, focus mainly on Count.
+
+26. Can a List have duplicate values?
+Yes. ✅
+List<int> numbers = new List<int>()
+{
+    10, 20, 20, 30, 20
+};
+Duplicates are allowed.
+
+27. Can a List store different data types?
+A List<int> cannot store different types.
+List<int> numbers = new List<int>();
+
+numbers.Add(10);     // ✅
+numbers.Add(20);     // ✅
+numbers.Add("Hello"); // ❌
+The type must match.
+
+28. Can a List store strings?
+Yes.
+List<string> names = new List<string>()
+{
+    "Savita",
+    "Rahul",
+    "Anita"
+};
+You can:
+names.Add("John");
+and:
+names.Remove("Rahul");
+
+________________________________________
+29. Can a List store objects?
+Yes. This is very important in real-world C#/.NET applications.
+Example:
+List<Person> people = new List<Person>();
+You can store multiple Person objects.
+This is something you will encounter frequently in ASP.NET Core and EF Core.
+
+
+
+30. Important List methods
+These are the methods I recommend you memorize first:
+Method	Purpose
+Add()	Add one element
+AddRange()	Add multiple elements
+Insert()	Insert at index
+Remove()	Remove by value
+RemoveAt()	Remove by index
+Contains()	Check if value exists
+IndexOf()	Find first index
+LastIndexOf()	Find last index
+Clear()	Remove all elements
+Sort()	Sort List
+Reverse()	Reverse List
+And properties:
+Property	Purpose
+Count	Number of elements
+Capacity	Internal capacity
+
+31. Very important: List indexing
+A List behaves similarly to an array when accessing elements.
+list[0]
+list[1]
+list[2]
+So:
+Array:
+arr[2]
+
+List:
+list[2]
+Both access the element at index 2.
+
+32. List vs Array — practical example
+Array
+int[] arr = { 10, 20, 30 };
+Want to add 40?
+You cannot simply do:
+arr.Add(40); // ❌
+List
+List<int> list = new List<int>()
+{
+    10, 20, 30
+};
+
+list.Add(40); // ✅
+Result:
+10 20 30 40
+That's the main reason Lists are convenient.
+
+B 
+
+
+33. What happens internally when List grows?
+You don't need to manually create a larger array.
+Conceptually, when the List runs out of internal space:
+Old storage
+[10][20][30][40]
+
+       ↓ needs more space
+
+New larger storage
+[10][20][30][40][ ][ ][ ][ ]
+The List manages this internally.
+You don't have to manually copy elements like you did with arrays.
+34. Complexity you should know
+For basic interview preparation:
+Operation	Typical complexity
+Access by index list[i]	O(1)
+Add at end	O(1) amortized
+Insert at beginning/middle	O(n)
+Remove at beginning/middle	O(n)
+Search	O(n)
+Contains()	O(n)
+IndexOf()	O(n)
+Why is insertion/removal in the middle O(n)?
+Because elements may need to be shifted.
+
+35. List and foreach
+Example:
+List<int> numbers = new List<int>()
+{
+    10, 20, 30, 40
+};
+
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+Output:
+10
+20
+30
+40
+foreach is useful when you just need the values and don't need the index.
+36. List and for
+When you need the index:
+for (int i = 0; i < numbers.Count; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+
+
+Remove()
+Remove() is used to remove an element by value.
+It removes only the first occurrence of that value.
+If the value is not present, no element is removed.
+list.Remove(value);
+
+Example:
+
+List: 10, 20, 10, 30, 10
+Remove(10)
+Result: 20, 10, 30, 10
+Remove All Occurrences
+To remove all occurrences of a value, use Remove() inside a while loop.
+The loop continues until the value no longer exists in the List.
+while (list.Remove(value))
+{
+}
+
+Example:
+
+List: 10, 20, 10, 30, 10
+Remove all 10
+Result: 20, 30
+🧠 Remember
+Remove(value)           → removes first occurrence
+while + Remove(value)   → removes all occurrences
+
+1. Compare Two Lists
+
+Method: SequenceEqual()
+
+list1.SequenceEqual(list2)
+Checks whether two Lists are equal.
+Checks same elements, same order, and same number of elements.
+Returns true if equal, otherwise false.
+
+Example:
+
+List<int> list1 = new List<int>() { 1, 2, 3 };
+List<int> list2 = new List<int>() { 1, 2, 3 };
+
+Console.WriteLine(list1.SequenceEqual(list2));
+
+Output:
+
+True
+2. Find Common Elements
+
+Method: Intersect()
+
+list1.Intersect(list2)
+Finds elements that are present in both Lists.
+Returns the common elements.
+Duplicate common values are returned only once.
+
+Example:
+
+List<int> list1 = new List<int>() { 1, 2, 3, 4 };
+List<int> list2 = new List<int>() { 3, 4, 5, 6 };
+
+var common = list1.Intersect(list2);
+
+foreach (int item in common)
+{
+    Console.WriteLine(item);
+}
+
+Output:
+
+3
+4
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
