@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>DSA_100Days.Day7.List.CopyList</StartupObject>
+    <StartupObject>DSA_100Days.Day8.Collection_NonGeneric_ArrayList.basic</StartupObject>
   </PropertyGroup>
 
 </Project>
